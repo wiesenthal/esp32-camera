@@ -23,7 +23,7 @@ set(include_dirs
 # set driver sources only for supported platforms
 if(IDF_TARGET STREQUAL "esp32" OR IDF_TARGET STREQUAL "esp32s2" OR IDF_TARGET STREQUAL "esp32s3")
   list(APPEND srcs
-    driver/esp_camera.c
+    driver/esp_camera_local.c
     driver/cam_hal.c
     driver/sensor.c
     sensors/ov2640.c
