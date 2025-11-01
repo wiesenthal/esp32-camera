@@ -1,7 +1,7 @@
 #pragma once
 
 #include "esp_system.h"
-#include "esp_camera.h"
+#include "esp_camera_local.h"
 
 esp_err_t xclk_timer_conf(int ledc_timer, int xclk_freq_hz);
 

@@ -45,7 +45,7 @@
 #define portTICK_RATE_MS portTICK_PERIOD_MS
 #endif
 
-#include "esp_camera.h"
+#include "esp_camera_local.h"
 
 #define BOARD_WROVER_KIT 1
 

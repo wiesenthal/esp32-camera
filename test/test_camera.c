@@ -9,7 +9,7 @@
 #include "driver/i2c.h"
 #include "esp_timer.h"
 
-#include "esp_camera.h"
+#include "esp_camera_local.h"
 
 #ifdef CONFIG_IDF_TARGET_ESP32
 #define BOARD_WROVER_KIT 1

@@ -52,7 +52,7 @@ This repository hosts ESP32 series Soc compatible driver for image sensors. Addi
   ```
   (or add it manually in idf_component.yml of your project)
 - Enable PSRAM in `menuconfig` (also set Flash and PSRAM frequiencies to 80MHz)
-- Include `esp_camera.h` in your code
+- Include `esp_camera_local.h` in your code
 
 These instructions also work for PlatformIO, if you are using `framework=espidf`.
 
@@ -72,10 +72,10 @@ lib_deps =
   esp32-camera
 ```
 
-Now the `esp_camera.h` is available to be included:
+Now the `esp_camera_local.h` is available to be included:
 
 ```c
-#include "esp_camera.h"
+#include "esp_camera_local.h"
 ```
 
 Enable PSRAM on `menuconfig` or type it direclty on `sdkconfig`. Check the [official doc](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/kconfig.html#config-esp32-spiram-support) for more info.
@@ -97,7 +97,7 @@ This command will download the example into `camera_example` directory. It comes
 ### Initialization
 
 ```c
-#include "esp_camera.h"
+#include "esp_camera_local.h"
 
 //WROVER-KIT PIN Map
 #define CAM_PIN_PWDN    -1 //power down is not used
@@ -185,7 +185,7 @@ esp_err_t camera_capture(){
 ### JPEG HTTP Capture
 
 ```c
-#include "esp_camera.h"
+#include "esp_camera_local.h"
 #include "esp_http_server.h"
 #include "esp_timer.h"
 
@@ -244,7 +244,7 @@ esp_err_t jpg_httpd_handler(httpd_req_t *req){
 ### JPEG HTTP Stream
 
 ```c
-#include "esp_camera.h"
+#include "esp_camera_local.h"
 #include "esp_http_server.h"
 #include "esp_timer.h"
 
@@ -330,7 +330,7 @@ esp_err_t jpg_stream_httpd_handler(httpd_req_t *req){
 ### BMP HTTP Capture
 
 ```c
-#include "esp_camera.h"
+#include "esp_camera_local.h"
 #include "esp_http_server.h"
 #include "esp_timer.h"
 

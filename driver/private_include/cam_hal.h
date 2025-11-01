@@ -14,7 +14,7 @@
 
 #pragma once
 
-#include "esp_camera.h"
+#include "esp_camera_local.h"
 
 
 #ifdef __cplusplus

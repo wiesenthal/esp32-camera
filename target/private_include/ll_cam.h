@@ -29,7 +29,7 @@
 #include "esp32s3/rom/lldesc.h"
 #endif
 #include "esp_log.h"
-#include "esp_camera.h"
+#include "esp_camera_local.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/queue.h"
 #include "freertos/task.h"
