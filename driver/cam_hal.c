@@ -535,19 +535,26 @@ static esp_err_t cam_dma_config(const camera_config_t *config)
 
 esp_err_t cam_init(const camera_config_t *config)
 {
+    ESP_LOGI(TAG, "cam_init start");
     CAM_CHECK(NULL != config, "config pointer is invalid", ESP_ERR_INVALID_ARG);
 
     esp_err_t ret = ESP_OK;
+    ESP_LOGI(TAG, "cam_init config ok");
     cam_obj = (cam_obj_t *)heap_caps_calloc(1, sizeof(cam_obj_t), MALLOC_CAP_DMA);
+    ESP_LOGI(TAG, "cam_init cam_obj malloc called");
     CAM_CHECK(NULL != cam_obj, "lcd_cam object malloc error", ESP_ERR_NO_MEM);
-
+    ESP_LOGI(TAG, "cam_init cam_obj malloc ok");
     cam_obj->swap_data = 0;
     cam_obj->vsync_pin = config->pin_vsync;
     cam_obj->vsync_invert = true;
 
+    ESP_LOGI(TAG, "cam_init ll_cam_set_pin called");
     ll_cam_set_pin(cam_obj, config);
+    ESP_LOGI(TAG, "cam_init ll_cam_set_pin ok");
     ret = ll_cam_config(cam_obj, config);
+    ESP_LOGI(TAG, "cam_init ll_cam_config called");
     CAM_CHECK_GOTO(ret == ESP_OK, "ll_cam initialize failed", err);
+    ESP_LOGI(TAG, "cam_init ll_cam_config ok");
 
 #if CAMERA_DBG_PIN_ENABLE
     PIN_FUNC_SELECT(GPIO_PIN_MUX_REG[DBG_PIN_NUM], PIN_FUNC_GPIO);
